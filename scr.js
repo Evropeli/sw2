@@ -1,47 +1,26 @@
-// davaleb 2 1*
-[
-    { name: 'Temo', age: 25 },
-    { name: 'Lasha', age: 21 },
-    { name: 'Ana', age: 28 }
-  ]
+// davaleba 1 1*  
 
-//   davaleba 2 2*
+function customReplace(originalString, valueToReplace, valueToReplaceWith) {
+  let result = '';
+  let i = 0
+  const originalLength = originalString.length;
+  const replaceLength = valueToReplace.length;
 
-function findYoungestUser(users) {
-    if (users.length === 0) return null; 
-    
-    let youngestUser = users[0];
-  
-    for (let i = 1; i < users.length; i++) {
-      if (users[i].age < youngestUser.age) {
-        youngestUser = users[i];
-      }
+
+  while (i < originalLength) {
+   
+    if (originalString.substring(i, i + replaceLength) === valueToReplace) {      
+        result += valueToReplaceWith
+        i += replaceLength;
+    } else {
+        result += originalString[i]; 
+        i++;
     }
-  
-    return youngestUser.name;
-  }
-  
- 
-  const users = [
-    { name: 'Temo', age: 25 },
-    { name: 'Lasha', age: 21 },
-    { name: 'Ana', age: 28 }
-  ];
-  
-  console.log(findYoungestUser(users)); 
+}
 
-//   davaleb 2 3*
+return result;
+}
 
-function cloneUser(user) {
-    return { ...user };
-  }
-  
- 
-  const user = { name: 'Temo', age: 25 };
-  const newUser = cloneUser(user);
-  
-  console.log(newUser); 
-  console.log(newUser === user); 
-
-  
-  
+const original = "Hello world! Hello everyone!";
+const result = customReplace(original, "Hello", "Hi");
+console.log(result);  
